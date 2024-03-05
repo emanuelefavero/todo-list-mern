@@ -1,8 +1,11 @@
 import { ItemType } from '@/types'
+import DeleteItem from './DeleteItem'
 
-interface Props extends ItemType {}
+interface Props extends ItemType {
+  deleteItem: (id: string) => void
+}
 
-export default function Item({ _id, name }: Props) {
+export default function Item({ _id, name, deleteItem }: Props) {
   return (
     <>
       <li>
@@ -13,6 +16,7 @@ export default function Item({ _id, name }: Props) {
         >
           {name}
         </label>
+        <DeleteItem _id={_id} deleteItem={deleteItem} />
       </li>
     </>
   )

@@ -2,6 +2,7 @@ import Item from '@/components/Item'
 import { ItemType } from '@/types'
 import { cookies } from 'next/headers'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
 
 // * GET Items from server
 async function getItems() {
@@ -14,6 +15,20 @@ async function getItems() {
   if (!response.ok) throw new Error('Failed to fetch items')
 
   return response.json()
+}
+
+// * DELETE Item from server
+async function deleteItem(_id: string) {
+  'use server'
+
+  const response = await fetch(`http://localhost:4000/api/items/${_id}`, {
+    method: 'DELETE',
+  })
+
+  if (!response.ok) throw new Error('Failed to delete item')
+
+  await response.json()
+  redirect('/')
 }
 
 // * Home component
@@ -29,7 +44,7 @@ export default async function Home() {
       {/* Items List */}
       <ul>
         {items.map((item: ItemType) => (
-          <Item key={item._id} {...item} />
+          <Item key={item._id} {...item} deleteItem={deleteItem} />
         ))}
       </ul>
     </main>

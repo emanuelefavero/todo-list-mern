@@ -5,11 +5,7 @@ async function addItem(data: FormData) {
   'use server'
 
   const name = data.get('name')?.valueOf() // * Get name from form data
-  if (!name) {
-    throw new Error('Name is required')
-
-    redirect('/new') // * Redirect to new
-  }
+  if (!name) throw new Error('Name is required')
 
   const response = await fetch('http://localhost:4000/api/items', {
     method: 'POST',
@@ -21,7 +17,7 @@ async function addItem(data: FormData) {
 
   // Wait for the server to add the item to the database and then redirect
   await response.json()
-  redirect('/') // * Redirect to home
+  redirect('/') // Redirect to home
 }
 
 export default function Page() {
@@ -31,6 +27,7 @@ export default function Page() {
 
       <form action={addItem} className='flex flex-col gap-4 mt-4 max-w-xs'>
         <input
+          required
           type='text'
           placeholder='New item'
           className='rounded p-2 text-black'
