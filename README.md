@@ -4,6 +4,10 @@
 
 This is a simple Todo List application built using the MERN stack. It allows users to add, check and delete tasks. The application uses a MongoDB database to store the tasks. Next.js 14 app router with server actions is used to render the front end
 
+#### Screenshot
+
+<img src="screenshot.png" alt="screenshot" width="300">
+
 ## Installation
 
 Before you begin, ensure to add a new database in MongoDB atlas and replace the `MONGODB_URI` in the `.env` file with your own database URI

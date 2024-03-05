@@ -43,7 +43,7 @@ export default async function Home() {
         href='/new'
         className='border text-white rounded p-2 hover:bg-white hover:text-black'
       >
-        New Item
+        New Item +
       </Link>
 
       {/* Items List */}
