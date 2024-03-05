@@ -9,10 +9,10 @@ export default function Item({ _id, name, deleteItem }: Props) {
   return (
     <>
       <li>
-        <input type='checkbox' id={_id} className='cursor-pointer peer' />
+        <input type='checkbox' id={_id} className='cursor-pointer peer mr-3' />
         <label
           htmlFor={_id}
-          className='cursor-pointer peer-checked:line-through peer-checked:text-slate-500'
+          className='cursor-pointer mr-3 peer-checked:line-through peer-checked:text-slate-500'
         >
           {name}
         </label>

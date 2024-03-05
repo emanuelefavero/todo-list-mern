@@ -16,7 +16,6 @@ async function addItem(data: FormData) {
   if (!response.ok) throw new Error('Failed to add item')
 
   // Wait for the server to add the item to the database and then redirect
-  await response.json()
   redirect('/') // Redirect to home
 }
 
@@ -41,10 +40,16 @@ export default function Page() {
           justify-end
         '
         >
-          <button type='submit' className='border text-white rounded p-2'>
+          <button
+            type='submit'
+            className='border text-white rounded p-2 hover:bg-white hover:text-black'
+          >
             Add
           </button>
-          <Link href='..' className='border text-white rounded p-2'>
+          <Link
+            href='..'
+            className='border text-white rounded p-2 hover:bg-white hover:text-black'
+          >
             Cancel
           </Link>
         </div>

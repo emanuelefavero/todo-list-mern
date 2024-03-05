@@ -39,10 +39,15 @@ export default async function Home() {
     <main>
       <h1 className='text-3xl font-bold mb-4'>Todo List</h1>
 
-      <Link href='/new'>New Item</Link>
+      <Link
+        href='/new'
+        className='border text-white rounded p-2 hover:bg-white hover:text-black'
+      >
+        New Item
+      </Link>
 
       {/* Items List */}
-      <ul>
+      <ul className='mt-4'>
         {items.map((item: ItemType) => (
           <Item key={item._id} {...item} deleteItem={deleteItem} />
         ))}
